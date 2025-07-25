@@ -31,7 +31,7 @@ def plot_central_tendency(
         1 = horizontal (y-axis).  
         Default is 0.
     linewidth : int, optional
-        Width of the plotted vertical lines.  
+        Width of the plotted lines.  
         Default is 1.
     colors : list[str], optional
         List of 3 colors for mean, median, and mode lines respectively.  

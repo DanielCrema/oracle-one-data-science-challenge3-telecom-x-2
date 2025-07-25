@@ -13,7 +13,9 @@
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
-from plot_utils import plt_show_close, plot_central_tendency, label_plot
+from plot_utils.label_plot import label_plot
+from plot_utils.plt_show_close import plt_show_close
+from plot_utils.plot_central_tendency import plot_central_tendency
 
 def explore_distribution(df: pd.DataFrame, feature: str, bins="auto") -> None:
     """
@@ -43,8 +45,9 @@ def explore_distribution(df: pd.DataFrame, feature: str, bins="auto") -> None:
 
     # Print information about the distribution of the feature
     print(f"Info:\n")
-    print(f"skewness    {df[feature].skew():.6f}")
-    print(f"kurtosis   {df[feature].kurtosis():.6f}")
+    if df[feature].dtype == 'int64' or df[feature].dtype == 'float64':
+        print(f"skewness    {df[feature].skew():.6f}")
+        print(f"kurtosis   {df[feature].kurtosis():.6f}")
     print(df[feature].describe())
     print('-' * 30)
 

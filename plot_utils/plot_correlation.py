@@ -16,8 +16,8 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 from plot_utils.plt_show_close import plt_show_close
 
-def plot_correlation(df: pd.DataFrame, features: list[str]) -> None:
-    corr = df[features].corr()
+def plot_correlation(df: pd.DataFrame | np.ndarray, features: list[str]) -> None:
+    corr = df[features].corr() # type: ignore
     mask = np.triu(np.ones_like(corr, dtype=bool))
     plt.figure(figsize=(6, 4))
     sns.heatmap(corr, mask=mask, annot=True, cmap='coolwarm', fmt=".2f", square=True, cbar_kws={"shrink": 0.8})

@@ -14,7 +14,7 @@ import numpy as np
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
-from plot_utils.plt_show_close import plt_show_close
+from utils.plt_show_close import plt_show_close
 
 def plot_correlation(df: pd.DataFrame | np.ndarray, features: list[str]) -> None:
     corr = df[features].corr() # type: ignore

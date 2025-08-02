@@ -16,7 +16,7 @@ import matplotlib.pyplot as plt
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.linear_model import LogisticRegression
-from plot_utils.plt_show_close import plt_show_close
+from utils.plt_show_close import plt_show_close
 
 
 def get_feature_importances(model: RandomForestClassifier | DecisionTreeClassifier | LogisticRegression, x_train: pd.DataFrame) -> pd.DataFrame:

@@ -198,6 +198,8 @@ pip install -r requirements.txt
 
 3. Then navigate to `main.ipynb` and explore the code.
 
+## 📝 License
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ## 🎓 Credits
 Developed by [**Daniel Crema**](https://github.com/DanielCrema) for educational and analytical purposes as part of the Alura Challenge 2 of the **ONE - Oracle Next Education** program.

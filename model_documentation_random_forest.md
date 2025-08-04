@@ -29,38 +29,38 @@
 - remainder__PaperlessBilling
 - remainder__Monthly
 
-## Sample Input (X.head())
-```
-column_name | 1st row value | dtype
-----------------------------------------
-onehotencoder__MultipleLines_Yes              | 0.0                  | float64
-onehotencoder__InternetService_DSL            | 0.0                  | float64
-onehotencoder__InternetService_Fibra Ótica    | 1.0                  | float64
-onehotencoder__InternetService_No             | 0.0                  | float64
-onehotencoder__OnlineSecurity_Yes             | 0.0                  | float64
-onehotencoder__OnlineBackup_Yes               | 1.0                  | float64
-onehotencoder__TechSupport_Yes                | 0.0                  | float64
-onehotencoder__StreamingTV_Yes                | 1.0                  | float64
-onehotencoder__StreamingMovies_Yes            | 1.0                  | float64
-onehotencoder__Contract_Anual                 | 0.0                  | float64
-onehotencoder__Contract_Bianual               | 0.0                  | float64
-onehotencoder__Contract_Mensal                | 1.0                  | float64
-onehotencoder__PaymentMethod_Electronic check | 1.0                  | float64
-remainder__SeniorCitizen                      | 0.0                  | float64
-remainder__Partner                            | 0.0                  | float64
-remainder__Dependents                         | 0.0                  | float64
-remainder__Tenure                             | 0.4305555555555555   | float64
-remainder__PaperlessBilling                   | 1.0                  | float64
-remainder__Monthly                            | 0.7587064676616915   | float64
-```
+## Sample Input - X.head(1)
 
-## Sample Output (y.head())
-```
- y_i | model.predict() | model.predict_proba() | dtype
-----------------------------------------------------------------------
- y0  |       1.0       |      [0.28,0.72]      | float64
- y1  |       0.0       |      [0.80,0.20]      | float64
- y2  |       1.0       |      [0.37,0.63]      | float64
- y3  |       1.0       |      [0.41,0.59]      | float64
- y4  |       1.0       |      [0.20,0.80]      | float64
-```
+| Column Name                                   | First row value    | Dtype   |
+| --------------------------------------------- | ------------------ | ------- |
+| onehotencoder__MultipleLines_Yes              | 0.0                | float64 |
+| onehotencoder__InternetService_DSL            | 0.0                | float64 |
+| onehotencoder__InternetService_Fibra Ótica    | 1.0                | float64 |
+| onehotencoder__InternetService_No             | 0.0                | float64 |
+| onehotencoder__OnlineSecurity_Yes             | 0.0                | float64 |
+| onehotencoder__OnlineBackup_Yes               | 1.0                | float64 |
+| onehotencoder__TechSupport_Yes                | 0.0                | float64 |
+| onehotencoder__StreamingTV_Yes                | 1.0                | float64 |
+| onehotencoder__StreamingMovies_Yes            | 1.0                | float64 |
+| onehotencoder__Contract_Anual                 | 0.0                | float64 |
+| onehotencoder__Contract_Bianual               | 0.0                | float64 |
+| onehotencoder__Contract_Mensal                | 1.0                | float64 |
+| onehotencoder__PaymentMethod_Electronic check | 1.0                | float64 |
+| remainder__SeniorCitizen                      | 0.0                | float64 |
+| remainder__Partner                            | 0.0                | float64 |
+| remainder__Dependents                         | 0.0                | float64 |
+| remainder__Tenure                             | 0.4305555555555555 | float64 |
+| remainder__PaperlessBilling                   | 1.0                | float64 |
+| remainder__Monthly                            | 0.7587064676616915 | float64 |
+
+
+## Sample Output - y.head()
+
+| y_i | model.predict() | model.predict_proba() | dtype   |
+| --- | --------------- | --------------------- | ------- |
+| y0  | 1.0             | [0.28,0.72]           | float64 |
+| y1  | 0.0             | [0.80,0.20]           | float64 |
+| y2  | 1.0             | [0.37,0.63]           | float64 |
+| y3  | 1.0             | [0.41,0.59]           | float64 |
+| y4  | 1.0             | [0.20,0.80]           | float64 |
+

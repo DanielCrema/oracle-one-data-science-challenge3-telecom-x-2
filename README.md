@@ -203,4 +203,16 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## 🎓 Credits
 Developed by [**Daniel Crema**](https://github.com/DanielCrema) for educational and analytical purposes as part of the Alura Challenge 2 of the **ONE - Oracle Next Education** program.
-Special thanks to Oracle and Alura, as well as all contributors, mentors, and the amazing Python open-source community!
+
+*Special thanks* to:  
+🕋🤲 **Almighty God** (ﷻ), for having given me intelligence and persistence to persevere.
+
+Then:
+- [**Oracle**](https://www.oracle.com/) for sponsoring the course and curating the course materials.
+- [**Alura**](https://www.alura.com.br/) for providing the course materials and support.
+- [**Python community**](https://www.python.org/) for providing top-tier open-source libraries and resources.
+
+
+<img src="https://raw.githubusercontent.com/devicons/devicon/ca28c779441053191ff11710fe24a9e6c23690d6/icons/oracle/oracle-original.svg" alt="logo-oracle" style="width: 70px; font-size: 10px"/>  
+
+<img src="https://moebius78.github.io/moebius78-sprint03-aluraONE.github.io/assets/Oracle_Alura.png" alt="logo-oracle-alura-latam" style="width: 115px; background: #FCFCFC; color: #333; font-size: 10px; padding: 2px 3px"/>

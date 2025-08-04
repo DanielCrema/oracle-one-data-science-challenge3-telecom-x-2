@@ -1,0 +1,204 @@
+# Telecom X - Part 2 📡
+
+This project aimed to perform a comprehensive analysis of Telecom-X's customer data to identify churn patterns and generate actionable insights through predictive modeling. Final deliverables include key business insights, well-documented machine learning models, and churn risk predictions to support the company’s strategic efforts in reducing customer attrition.  
+
+The workflow progressed from descriptive analytics to advanced machine learning techniques, aligned with the project’s strategic objectives.
+
+## 🛠️ Stack
+[Python 3](https://www.python.org/)
+
+[Jupyter Notebook](https://jupyter.org/) Python notebook interface
+
+[Numpy](https://numpy.org/) – Numerical computing.
+
+[Pandas](https://pandas.pydata.org/) – Data manipulation.
+
+[Matplotlib](https://matplotlib.org/) – Chart generation.
+
+[Seaborn](https://seaborn.pydata.org/) – Enhanced statistical plotting.
+
+[Sci-Kit Learn](https://scikit-learn.org/stable/) – Machine Learning library.
+
+[Imblearn](https://imbalanced-learn.org/stable/) – Imbalanced Learn, sklearn toolkit to deal with data imbalance.
+
+## 📊 Project Overview
+
+### 🔍 Data Analytics Approach
+
+- The **Exploratory Data Analysis (EDA)** phase provided a detailed overview of customer behavior through intuitive visualizations.
+
+- The **Data Preprocessing** stage enriched the EDA by incorporating numerical insights and preparing the dataset for modeling through relevant transformations.
+
+### 🧠 Data Science Methodology
+
+- After preprocessing, various models were evaluated in the **Cross-Validation** phase, where hyperparameters were tuned to optimize model performance.
+
+- In the **Model Experimentation** phase, models were trained on the current dataset and evaluated using confusion matrices and metrics such as ROC-AUC and F1 Score. Particular emphasis was placed on Recall, to minimize false negatives.
+
+- The **Model Refinement** phase focused on improving computational efficiency while preserving performance.
+
+- In **Prediction Phase**, the top-performing models were used to generate churn risk predictions on current data, delivering actionable insights for Telecom-X's marketing and strategy teams.
+
+- These predictions were then appended to the dataset in the **Appending Predictions** section.
+
+- Models and decisions were thoroughly documented during the **Model Documentation** phase.
+
+- Finally, in **Model Export**, the trained models were serialized and saved as binaries using pickle.
+
+## 🧩 Churn Prediction Pipeline Diagram
+
+- **Start**
+  - **Data Ingestion**
+    - Load and organize raw customer data.
+  - **Exploratory Data Analysis (EDA)**
+    - Visualize trends and patterns in churn behavior.
+  - **Data Preprocessing**
+    - Feature transformation
+    - Encoding categorical variables
+    - Scaling numeric values
+  - **Model Training & Evaluation**
+    - Cross-validation
+    - Hyperparameter tuning
+    - Evaluate using ROC-AUC, F1 Score, Recall
+  - **Model Selection & Refinement**
+    - Choose best models based on performance
+    - Improve computational efficiency
+  - **Churn Risk Prediction**
+    - Generate churn probability predictions
+    - Post-process into risk categories
+  - **Appending Predictions to Dataset**
+    - Add `ChurnRisk_%` and `ChurnRisk` columns
+  - **Model Documentation & Export**
+    - Save models using `pickle`
+    - Document modeling choices and decisions
+  - **Delivery to Stakeholders**
+    - Share insights and segment interpretations
+    - Provide guide for practical use
+- **End**
+
+## 📈 Model Performance Summary
+
+| Model Name              | Accuracy | Precision | Recall | F1 Score | ROC-AUC |
+|-------------------------|----------|-----------|--------|----------|---------|
+| Logistic Regression     |  0.75    |  0.51     |  0.78  |  0.62    |  0.84   |
+| Random Forest           |  0.74    |  0.50     |  0.78  |  0.61    |  0.84   |
+| Decision Tree           |  0.75    |  0.52     |  0.72  |  0.61    |  0.82   |
+
+**Final Selected Models**
+
+✅ Random Forest Classifier  
+✅ Logistic Regression Classifier
+
+## 🧭 Predictions User Guide
+
+To ensure predictions were easily interpretable by stakeholders, a post-processing heuristic was applied to the model outputs. This process involved the creation of two new columns reflecting the **risk probability** and **risk level**:
+
+1. **Probability averaging:**
+
+    - A new `probability` column was created by averaging churn probability scores from both models (Random Forest and Logistic Regression), aiming to reduce individual model bias.
+
+    - A `ChurnRisk_%` column was derived by multiplying probability by 100.
+
+2. **Classification Averaging:**
+
+    - `1.0`: Both models predicted churn.
+
+    - `0.0`: Both models predicted no churn.
+    - `0.5`: A model predicted churn and the other predicted no churn.
+
+3. **Risk Labeling:**
+
+    - A final `ChurnRisk` column was generated by applying the `classify_risk()` heuristic, which maps combinations of `probability` and `classification` into the following categories: 
+        - No risk, Low risk, Moderate risk, High risk, Very high risk
+
+4. **Integration into Dataset:** 
+
+    - Predictions were appended to the original data set at `Appending Predictions` section.
+
+    - `ChurnRisk` for risk label
+
+    - `ChurnRisk_%` for churn probability
+
+⚠️ Note: For customers already labeled as churned in the original dataset:  
+
+- `ChurnRisk` = Churn  
+
+- `ChurnRisk_%` = 100.00
+
+## 🔑 Key Insights
+
+The most influential features across all models, based on feature importance (tree-based), coefficient weights (logistic regression), and permutation scores, were:
+- `Contract_Mensal`
+
+- `Monthly`
+- `Tenure`
+- `InternetService_Fibra Ótica`
+- `PaymentMethod_Electronic check`
+- `Contract_Bianual`
+
+These findings suggest churn behavior is primarily driven by pricing models, internet service type, electronic payment friction, and contract structure. In particular, fiber optic service and monthly contracts showed strong associations with higher churn rates.  
+
+Telecom-X shall, therefore, deeply analyze one or more of the following factors:
+- **Pricing policies**
+
+- **Internet service quality**
+- **User experience with electronic billing systems**
+- **Contractual issues**, such as:
+    - High early termination fees
+
+    - Bureaucratic procedures
+
+
+## 🗂️ Project Structure
+```bash
+.
+├── main.ipynb                                   # Main Data Pipeline
+│
+├── utils/
+│   ├── document_model.py                        # Generate model documentations
+│   ├── explore_distribution.py                  # Abstracts Distribution EDA
+│   ├── FeatureDropCandidates.py                 # Abstracts model evaluation
+│   ├── get_feature_importances_summary.py       #
+│   ├── get_feature_importances.py               #
+│   ├── get_feature_permutation_importances.py   #
+│   ├── get_permutation_importances_summary.py   #
+│   ├── label_plot.py                            # Abstracts plotting
+│   ├── plot_central_tendency.py                 #
+│   ├── plot_confusion_matrix.py                 #
+│   ├── plot_correlation.py                      #
+│   ├── plot_feature.py                          #
+│   └── plt_show_close.py                        # Show plots then plt.close()
+│
+├── logistic_regression_classifier.pkl           # Models
+│
+├── random_forest_classifier.pkl                 #
+│
+├── model_documentation_logistic_regression.md   # Models documentation
+│
+├── model_documentation_random_forest.md         #
+│
+├── TelecomX_Data_Transformed.csv                # Input raw data
+│
+└── TelecomX_Data_With_Predictions.csv           # Data with prediction information
+```
+
+## 📑 How to Run Locally
+1. Clone the repository:
+
+```bash
+git clone https://github.com/DanielCrema/oracle-one-data-science-challenge3-telecom-x-2.git
+cd oracle-one-data-science-challenge3-telecom-x-2
+```
+
+2. Install the requirements:
+
+```bash
+pip install -r requirements.txt
+```
+
+3. Then navigate to `main.ipynb` and explore the code.
+
+
+## 🎓 Credits
+Developed by [**Daniel Crema**](https://github.com/DanielCrema) for educational and analytical purposes as part of the Alura Challenge 2 of the **ONE - Oracle Next Education** program.
+Special thanks to Oracle and Alura, as well as all contributors, mentors, and the amazing Python open-source community!

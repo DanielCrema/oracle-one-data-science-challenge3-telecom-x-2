@@ -35,7 +35,7 @@ The main work can be found at [**main.ipynb**](main.ipynb).
 
 - After preprocessing, various models were evaluated in the **Cross-Validation** phase, where hyperparameters were tuned to optimize model performance.
 
-- In the **Model Experimentation** phase, models were trained on the current dataset and evaluated using confusion matrices and metrics such as ROC-AUC and F1 Score. Particular emphasis was placed on Recall, to minimize false negatives.
+- In the **Model Experimentation** phase, models were trained on the current dataset and evaluated using confusion matrices and metrics such as ROC-AUC and F1 Score. Particular emphasis is placed on Recall, to minimize false negatives.
 
 - The **Model Refinement** phase focused on improving computational efficiency while preserving performance.
 
@@ -91,6 +91,29 @@ The main work can be found at [**main.ipynb**](main.ipynb).
 ✅ Random Forest Classifier  
 ✅ Logistic Regression Classifier
 
+## 🔑 Key Insights
+
+The most influential features across all models, based on feature importance (tree-based), coefficient weights (logistic regression), and permutation scores, were:
+- `Contract_Mensal`
+
+- `Monthly`
+- `Tenure`
+- `InternetService_Fibra Ótica`
+- `PaymentMethod_Electronic check`
+- `Contract_Bianual`
+
+These findings suggest churn behavior is primarily driven by pricing models, internet service type, electronic payment friction, and contract structure. In particular, fiber optic service and monthly contracts showed strong associations with higher churn rates.  
+
+Telecom-X shall, therefore, deeply analyze one or more of the following factors:
+- **Pricing policies**
+
+- **Internet service quality**
+- **User experience with electronic billing systems**
+- **Contractual issues**, such as:
+    - High early termination fees
+
+    - Bureaucratic procedures
+
 ## 🧭 Predictions User Guide
 
 To ensure predictions were easily interpretable by stakeholders, a post-processing heuristic was applied to the model outputs. This process involved the creation of two new columns reflecting the **risk probability** and **risk level**:
@@ -127,29 +150,10 @@ To ensure predictions were easily interpretable by stakeholders, a post-processi
 
 - `ChurnRisk_%` = 100.00
 
-## 🔑 Key Insights
+## 📄 Model Documentation
 
-The most influential features across all models, based on feature importance (tree-based), coefficient weights (logistic regression), and permutation scores, were:
-- `Contract_Mensal`
-
-- `Monthly`
-- `Tenure`
-- `InternetService_Fibra Ótica`
-- `PaymentMethod_Electronic check`
-- `Contract_Bianual`
-
-These findings suggest churn behavior is primarily driven by pricing models, internet service type, electronic payment friction, and contract structure. In particular, fiber optic service and monthly contracts showed strong associations with higher churn rates.  
-
-Telecom-X shall, therefore, deeply analyze one or more of the following factors:
-- **Pricing policies**
-
-- **Internet service quality**
-- **User experience with electronic billing systems**
-- **Contractual issues**, such as:
-    - High early termination fees
-
-    - Bureaucratic procedures
-
+#### 🔗 [**Random Forest**](model_documentation_random_forest.md)
+#### 🔗 [**Logistic Regression**](model_documentation_logistic_regression.md)
 
 ## 🗂️ Project Structure
 ```bash

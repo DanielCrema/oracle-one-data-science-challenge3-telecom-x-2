@@ -4,6 +4,8 @@ This project aimed to perform a comprehensive analysis of Telecom-X's customer d
 
 The workflow progressed from descriptive analytics to advanced machine learning techniques, aligned with the project’s strategic objectives.
 
+The main work can be found at [**main.ipynb**](main.ipynb).
+
 ## 🛠️ Stack
 [Python 3](https://www.python.org/)
 
